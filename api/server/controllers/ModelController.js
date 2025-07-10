@@ -7,12 +7,7 @@ const { logger } = require('~/config');
  * @param {ServerRequest} req
  */
 const getModelsConfig = async (req) => {
-  const cache = getLogStores(CacheKeys.CONFIG_STORE);
-  let modelsConfig = await cache.get(CacheKeys.MODELS_CONFIG);
-  if (!modelsConfig) {
-    modelsConfig = await loadModels(req);
-  }
-
+  modelsConfig = await loadModels(req);
   return modelsConfig;
 };
 
