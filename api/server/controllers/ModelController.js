@@ -22,16 +22,19 @@ const getModelsConfig = async (req) => {
  * @returns {Promise<TModelsConfig>} The models config.
  */
 async function loadModels(req) {
-  const cache = getLogStores(CacheKeys.CONFIG_STORE);
-  const cachedModelsConfig = await cache.get(CacheKeys.MODELS_CONFIG);
-  if (cachedModelsConfig) {
-    return cachedModelsConfig;
+	// const cache = getLogStores(CacheKeys.CONFIG_STORE);
+	// const cachedModelsConfig = await cache.get(CacheKeys.MODELS_CONFIG);
+	// if (cachedModelsConfig) {
+	//   return cachedModelsConfig;
+	// }
+	const customModelsConfig = await loadConfigModels(req);
+  
+	// 如果你只想加载自定义模型，不加载默认模型，就保持这样
+	const modelConfig = { ...customModelsConfig };
+  
+	await cache.set(CacheKeys.MODELS_CONFIG, modelConfig);
+	return modelConfig;
   }
-  const customModelsConfig = await loadConfigModels(req);
-
-  await cache.set(CacheKeys.MODELS_CONFIG, customModelsConfig);
-  return customModelsConfig;
-}
 
 async function modelController(req, res) {
   try {
