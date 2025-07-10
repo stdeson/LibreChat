@@ -1,3 +1,1 @@
-docker rm -f LibreChat-NGINX
-docker compose down
-docker compose -f deploy-compose.yml up -d
+docker rm -f LibreChat-NGINX && docker compose down && docker compose -f deploy-compose.yml up -d
