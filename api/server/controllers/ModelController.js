@@ -27,10 +27,9 @@ async function loadModels(req) {
   if (cachedModelsConfig) {
     return cachedModelsConfig;
   }
-  const defaultModelsConfig = await loadDefaultModels(req);
   const customModelsConfig = await loadConfigModels(req);
 
-  const modelConfig = { ...defaultModelsConfig, ...customModelsConfig };
+  const modelConfig = { ...customModelsConfig };
 
   await cache.set(CacheKeys.MODELS_CONFIG, modelConfig);
   return modelConfig;
