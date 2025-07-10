@@ -29,10 +29,8 @@ async function loadModels(req) {
   }
   const customModelsConfig = await loadConfigModels(req);
 
-  const modelConfig = { ...customModelsConfig };
-
-  await cache.set(CacheKeys.MODELS_CONFIG, modelConfig);
-  return modelConfig;
+  await cache.set(CacheKeys.MODELS_CONFIG, customModelsConfig);
+  return customModelsConfig;
 }
 
 async function modelController(req, res) {
