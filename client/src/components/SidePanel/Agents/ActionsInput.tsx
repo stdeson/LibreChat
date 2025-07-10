@@ -260,18 +260,6 @@ export default function ActionsInput({
       )}
       <div className="relative my-1">
         <ActionCallback action_id={action?.action_id} />
-        <div className="mb-1.5 flex items-center">
-          <label className="text-token-text-primary block font-medium">
-            {localize('com_ui_privacy_policy_url')}
-          </label>
-        </div>
-        <div className="border-token-border-medium bg-token-surface-primary hover:border-token-border-hover flex h-9 w-full rounded-lg border">
-          <input
-            type="text"
-            placeholder="https://api.example-weather-app.com/privacy"
-            className="flex-1 rounded-lg bg-transparent px-3 py-1.5 text-sm outline-none placeholder:text-text-secondary-alt focus:ring-1 focus:ring-border-light"
-          />
-        </div>
       </div>
       <div className="flex items-center justify-end">
         <button
