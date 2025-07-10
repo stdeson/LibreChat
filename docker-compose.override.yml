@@ -1,8 +1,8 @@
 services:
   api:
     environment:
-      - NODE_ENV=development
+      - NODE_ENV=development  # 允许通过 HTTP 传输 Cookie, 避免不能带上cookie导致要重登
     volumes:
-    - type: bind
-      source: ./librechat.yaml
-      target: /app/librechat.yaml
+      - type: bind
+        source: ./librechat.yaml
+        target: /app/librechat.yaml

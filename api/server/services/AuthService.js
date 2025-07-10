@@ -31,6 +31,7 @@ const domains = {
 };
 
 const isProduction = process.env.NODE_ENV === 'production';
+logger.info('isProduction', isProduction);
 const genericVerificationMessage = 'Please check your email to verify your email address.';
 
 /**
